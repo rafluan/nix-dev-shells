@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
-
+{pkgs ? import <nixpkgs> {}}:
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     # Cross compiler for 32-bit ARM
@@ -42,10 +41,11 @@ pkgs.mkShell {
 
     # Python + bindings tools
     python3
-    (python3.withPackages (ps: with ps; [
-      pyyaml
-      jsonschema
-    ]))
+    (python3.withPackages (ps:
+      with ps; [
+        pyyaml
+        jsonschema
+      ]))
   ];
 
   shellHook = ''

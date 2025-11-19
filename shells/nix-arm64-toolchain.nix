@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
-
+{pkgs ? import <nixpkgs> {}}:
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     # Cross compiler and core toolchain
@@ -41,14 +40,15 @@ pkgs.mkShell {
 
     # Python for scripts and bindings
     python3
-    (python3.withPackages (ps: with ps; [
-      pyyaml
-      jsonschema
-    ]))
+    (python3.withPackages (ps:
+      with ps; [
+        pyyaml
+        jsonschema
+      ]))
   ];
 
   # Disable RELRO hardening to avoid ld warning when not supported
-  hardeningDisable = [ "relro" ];
+  hardeningDisable = ["relro"];
 
   shellHook = ''
     export ARCH=arm64
@@ -57,4 +57,3 @@ pkgs.mkShell {
     echo "🛠️  ARM64 cross-compilation environment ready: supports Linux, U-Boot, and user-space projects."
   '';
 }
-
