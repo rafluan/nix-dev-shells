@@ -27,6 +27,7 @@ use flake ~/nix-dev-shells#arm64
 └── shells/
     ├── nix-arm32-toolchain.nix
     ├── nix-arm64-toolchain.nix
+    ├── nix-zephyr-sdk.nix
     └── ...
 ```
 
