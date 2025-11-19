@@ -6,6 +6,7 @@
   sdk = zephyr.sdk-0_17.override {
     targets = [
       "arm-zephyr-eabi"
+      "aarch64-zephyr-elf"
     ];
   };
 
@@ -36,7 +37,7 @@ in
 
     shellHook = ''
       # Make sure the toolchain is added to PATH
-      export PATH="$ZEPHYR_SDK_INSTALL_DIR/arm-zephyr-eabi/bin:$PATH"
+      export PATH="$ZEPHYR_SDK_INSTALL_DIR/arm-zephyr-eabi/bin:$ZEPHYR_SDK_INSTALL_DIR/aarch64-zephyr-elf/bin:$PATH"
 
       echo "arm-zephyr-eabi-gcc -> $(command -v arm-zephyr-eabi-gcc || echo 'NOT FOUND')"
       echo "Python -> $(command -v python || echo 'NOT FOUND')"
