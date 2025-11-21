@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    zephyr-nix.url = "github:rafluan/zephyr-nix/sdk-0.17";
+    zephyr-nix.url = "github:nix-community/zephyr-nix/master";
   };
 
   outputs = {
